@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: SalesOrg
+  version: '1.0'
+  description: SalesOrg Service API
+  summary: This service is used to read and manage SalesOrg information in Digital Studio.
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/salesorg/{SalesOrgId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-salesorg
+      description: Returns all SalesOrgs
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrg'
+    parameters:
+      - schema:
+          type: string
+        name: SalesOrgId
+        in: path
+        required: true
+        description: The Id of the SalesOrg
+    put:
+      summary: ''
+      operationId: put-salesorg-SalesOrgId
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrg'
+    delete:
+      summary: ''
+      operationId: delete-salesorg-SalesOrgId
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrg'
+  /salesorg:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SalesOrg'
+      operationId: get-salesorg
+      description: Create a new SalesOrg
+    post:
+      summary: ''
+      operationId: post-salesorg
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrg'
+components:
+  schemas:
+    SalesOrg:
+      title: SalesOrg
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        alpha2:
+          type: string
+        alpha3:
+          type: string
+        type:
+          type: string
+  responses: {}
